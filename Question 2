@@ -1,0 +1,88 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Person class
+class Person {
+    protected:
+        int age;
+        string firstName;
+        string lastName;
+    public:
+        // Constructor
+        Person(int age, string firstName, string lastName) {
+            this->age = age;
+            this->firstName = firstName;
+            this->lastName = lastName;
+        }
+        // Getter methods
+        int getAge() {
+            return age;
+        }
+        string getFirstName() {
+            return firstName;
+        }
+        string getLastName() {
+            return lastName;
+        }
+        // Setter methods
+        void setAge(int age) {
+            this->age = age;
+        }
+        void setFirstName(string firstName) {
+            this->firstName = firstName;
+        }
+        void setLastName(string lastName) {
+            this->lastName = lastName;
+        }
+};
+
+// Student class
+class Student: public Person {
+    private:
+        string institution;
+        int yearOfStudy;
+        int registrationNumber;
+    public:
+        // Constructor
+        Student(int age, string firstName, string lastName, string institution, int yearOfStudy, int registrationNumber) : Person(age, firstName, lastName) {
+            this->institution = institution;
+            this->yearOfStudy = yearOfStudy;
+            this->registrationNumber = registrationNumber;
+        }
+        // Getter methods
+        string getInstitution() {
+            return institution;
+        }
+        int getYearOfStudy() {
+            return yearOfStudy;
+        }
+        int getRegistrationNumber() {
+            return registrationNumber;
+        }
+        // Setter methods
+        void setInstitution(string institution) {
+            this->institution = institution;
+        }
+        void setYearOfStudy(int yearOfStudy) {
+            this->yearOfStudy = yearOfStudy;
+        }
+        void setRegistrationNumber(int registrationNumber) {
+            this->registrationNumber = registrationNumber;
+        }
+};
+
+int main() {
+    // Create a person object
+    Person person(25, "fred", "kitonga");
+    cout << "Person: " << person.getFirstName() << " " << person.getLastName() << " (Age: " << person.getAge() << ")" << endl;
+
+    // Create a student object
+    Student student(20, "Cynthia", "Nthenya", "JKUAT", 2, 2112020);
+    cout << "Student: " << student.getFirstName() << " " << student.getLastName() << " (Age: " << student.getAge() << ")" << endl;
+    cout << "Institution: " << student.getInstitution() << ", Year of Study: " << student.getYearOfStudy() << ", Registration Number: " << student.getRegistrationNumber() << endl;
+
+    return 0;
+}
+    
